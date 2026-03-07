@@ -8,10 +8,8 @@ body {
 	font-family: 'Noto Sans KR', sans-serif;
 	background: linear-gradient(135deg, #142755 0%, #232946 100%);
 	min-height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 20px;
+	display: block;
+	padding: 40px 20px;
 }
 
 .card {
@@ -20,6 +18,7 @@ body {
 	box-shadow: 0 15px 40px rgba(20, 39, 85, 0.4);
 	width: 100%;
 	max-width: 800px;
+	margin: 0 auto;
 	padding: 40px;
 	display: flex;
 	flex-direction: column;
@@ -613,4 +612,143 @@ h2:hover {
 		color: #333;
 		text-align: right;
 	}
+}
+
+
+.section-stack {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+}
+
+.portfolio-section,
+.plan-section,
+.comic-section,
+.course-section,
+.translation-section {
+	width: 100%;
+	max-width: 680px;
+	margin: 0 auto;
+}
+
+.section-stack > .portfolio-section:first-child {
+	margin-top: 10px;
+}
+
+.video-grid,
+.steam-grid {
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 20px;
+}
+
+.video-grid--single {
+	grid-template-columns: minmax(0, 420px);
+	justify-content: center;
+}
+
+.video-item iframe {
+	display: block;
+	width: 100%;
+	height: 240px;
+}
+
+.steam-item iframe {
+	display: block;
+	width: 100%;
+}
+
+#portfolioVN .video-item,
+#portfolioAC .video-item {
+	max-width: 420px;
+	margin: 0 auto;
+}
+
+#portfolioVN .video-item p,
+#portfolioAC .video-item p {
+	min-height: 0;
+}
+
+@media (max-width: 768px) {
+	.portfolio-section,
+	.plan-section,
+	.comic-section,
+	.course-section,
+	.translation-section {
+		max-width: 100%;
+	}
+	.video-grid,
+	.steam-grid {
+		grid-template-columns: 1fr;
+	}
+	.video-grid--single {
+		grid-template-columns: 1fr;
+	}
+	.video-item iframe {
+		height: 220px;
+	}
+}
+
+
+/* Separate Arcade and VN sections clearly, each on its own row */
+#portfolioAC,
+#portfolioVN {
+	max-width: 680px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#portfolioAC .video-grid,
+#portfolioVN .video-grid {
+	grid-template-columns: 1fr;
+	justify-items: center;
+}
+
+#portfolioAC .video-item,
+#portfolioVN .video-item {
+	width: 100%;
+	max-width: 420px;
+	margin: 0 auto;
+}
+
+#portfolioVN .video-item iframe,
+#portfolioAC .video-item iframe {
+	width: 100%;
+	max-width: 420px;
+	height: 236px;
+	margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+	#portfolioAC .video-item,
+	#portfolioVN .video-item,
+	#portfolioVN .video-item iframe,
+	#portfolioAC .video-item iframe {
+		max-width: 100%;
+	}
+}
+
+#portfolioAC,
+#portfolioVN {
+	min-height: 520px;
+}
+
+#portfolioAC .video-item p,
+#portfolioVN .video-item p {
+	min-height: 72px;
+}
+
+#portfolioAC .video-grid,
+#portfolioVN .video-grid {
+	align-items: start;
+}
+
+#portfolioAC .video-item,
+#portfolioVN .video-item {
+	min-height: 360px;
+}
+
+#portfolioAC,
+#portfolioVN {
+	margin-top: 0;
 }

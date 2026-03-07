@@ -122,10 +122,12 @@
 						><span>.</span>
 					</p>
 				</div>
-			</div>
+			
 
-			<div class="portfolio-section" id="portfolioAC">
+			<div class="section-stack">
+				<div class="portfolio-section" id="portfolioAC">
 				<h2>Arcade Game Demos</h2>
+				<div class="video-grid video-grid--single">
 					<div class="video-item">
 						<iframe
 							width="100%"
@@ -155,10 +157,13 @@
 						<p>기초적인 소울라이크 장르 플레이어의 움직임, 공격, 회피, 방어 매커니즘을 구현한 데모.</p>
 					</div>
 				</div>
+			
+				</div>
 			</div>
 
-			<div class="portfolio-section" id="portfolioVN">
+				<div class="portfolio-section" id="portfolioVN">
 				<h2>VN Demos</h2>
+				<div class="video-grid video-grid--single">
 					<div class="video-item">
 						<iframe
 							width="100%"
@@ -175,10 +180,13 @@
 							다중 선택지와 작은 분기 이벤트, 클릭을 통한 인게임 오브젝트 상호 작용 등의 인터랙티브 요소를 포함한 짧은 비주얼 노벨의 자작 데모.
 						</p>
 					</div>
+
+				</div>
+			
 				</div>
 			</div>
-		
-			<div class="portfolio-section" id="portfolioLC">
+
+				<div class="portfolio-section" id="portfolioLC">
 				<h2>Localization</h2>
 				<div class="video-grid">
 					<div class="video-item">
@@ -206,7 +214,7 @@
 							allowfullscreen
 						>
 						</iframe>
-						<h3>Cross The Boundaries 한글화 현황</h3>
+						<h3>Cross The Boundaries 한글화</h3>
 						<p>동방 프로젝트 기반 비주얼 노벨 - 퍼즐 게임의 한글화.</p>
 					</div>
 					<div class="video-item">
@@ -220,7 +228,7 @@
 							allowfullscreen
 						>
 						</iframe>
-						<h3>The Path Home 한글 01</h3>
+						<h3>The Path Home 한글화</h3>
 						<p>
 							퍼즐 - 스토리 게임의 비공식 한글화.
 						</p>
@@ -244,7 +252,7 @@
 				</div>
 			</div>
 
-			<div class="course-section" id="course">
+				<div class="course-section" id="course">
 				<h2>번역 강좌(기초)</h2>
 				<div class="video-grid">
 					<div class="video-item">
@@ -336,8 +344,8 @@
 				</div>
 			</div>
 
-			<div class="translation-section" id="translation">
-				<h2>번역한 게임 목록(일부, 갱신 중!)</h2>
+				<div class="translation-section" id="translation">
+				<h2>현지화한 게임</h2>
 				<div class="steam-grid">
 					<div class="steam-item">
 						<iframe
@@ -560,8 +568,9 @@
 					</div>
 					</div>
 			
-			<div class="plan-section portfolio-section" id="plan">
-				<h2>번외- 기획물</h2>
+
+				<div class="plan-section portfolio-section" id="plan">
+				<h2>기획물</h2>
 			<div class="steam-grid">
 					<div class="steam-item">
 						<iframe
@@ -614,10 +623,6 @@
 					</div>
 				</div>
 			</div>
-			
-					</div>
-				</div>
-			</div>
 		</div>
 
 		<!-- 플로팅 메뉴 -->
@@ -626,9 +631,9 @@
 			<div class="floating-list" id="floatingList">
 				<button onclick="scrollToSection('top')">상단으로</button>
 				<button onclick="scrollToSection('profile')">프로필</button>
-				<button onclick="scrollToSection('portfolioAC')">작업물 1</button>
-				<button onclick="scrollToSection('portfolioVN')">작업물 2</button>
-				<button onclick="scrollToSection('portfolioLC')">작업물 3</button>
+				<button onclick="scrollToSection('portfolioAC')">AC</button>
+				<button onclick="scrollToSection('portfolioVN')">VN</button>
+				<button onclick="scrollToSection('portfolioLC')">LC</button>
 				<button onclick="scrollToSection('course')">강좌</button>
 				<button onclick="scrollToSection('translation')">번역</button>
 				<button onclick="scrollToSection('plan')">기획물</button>
@@ -636,7 +641,6 @@
 		</div>
 
 		<script>
-			// 플로팅 메뉴 토글
 			const floatingBtn = document.getElementById('floatingBtn');
 			const floatingList = document.getElementById('floatingList');
 			let menuOpen = false;
@@ -645,7 +649,6 @@
 				floatingList.style.display = menuOpen ? 'flex' : 'none';
 			});
 
-			// 바깥 클릭 시 메뉴 닫기
 			document.addEventListener('click', (e) => {
 				if (!document.querySelector('.floating-menu').contains(e.target)) {
 					floatingList.style.display = 'none';
@@ -653,14 +656,13 @@
 				}
 			});
 
-			// 스크롤 이동 함수
 			function scrollToSection(id) {
 				if (id === 'top') {
 					window.scrollTo({ top: 0, behavior: 'smooth' });
 				} else {
 					const el = document.getElementById(id);
 					if (el) {
-						el.scrollIntoView({ behavior: 'smooth' });
+						el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 					}
 				}
 				floatingList.style.display = 'none';
